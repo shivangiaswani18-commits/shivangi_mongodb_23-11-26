@@ -1,8 +1,8 @@
 Microsoft Windows [Version 10.0.26200.9974]
 (c) Microsoft Corporation. All rights reserved.
 
-C:\Users\INDIAN  OIL>mongosh "mongodb+srv://cluster0.ek1xurq.mongodb.net/" --apiVersion 1 --username 2024pceaitpratibha36_db_user
-Enter password: ********
+C:\Users\INDIAN  OIL>mongosh "mongodb+srv://cluster0.ek1xurq.mongodb.net/" --apiVersion 1 --username shivi
+Enter password: **********
 Current Mongosh Log ID: 6b03afef206a9f590ad9a5ac
 Connecting to:          mongodb+srv://<credentials>@cluster0.ek1xurq.mongodb.net/?appName=mongosh+2.10.0
 Using MongoDB:          8.0.39 (API Version 1)
