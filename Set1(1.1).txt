@@ -1,0 +1,163 @@
+Microsoft Windows [Version 10.0.26200.9974]
+(c) Microsoft Corporation. All rights reserved.
+
+C:\Users\INDIAN  OIL>mongosh "mongodb+srv://cluster0.ek1xurq.mongodb.net/" --apiVersion 1 --username 2024pceaitpratibha36_db_user
+Enter password: ********
+Current Mongosh Log ID: 6b03afef206a9f590ad9a5ac
+Connecting to:          mongodb+srv://<credentials>@cluster0.ek1xurq.mongodb.net/?appName=mongosh+2.10.0
+Using MongoDB:          8.0.39 (API Version 1)
+Using Mongosh:          2.10.0
+mongosh 2.14.3 is available for download: https://www.mongodb.com/try/download/shell
+
+For mongosh info see: https://www.mongodb.com/docs/mongodb-shell/
+
+use college
+switched to db college
+Atlas atlas-aw21i9-shard-0 [primary] college> db.createCollection("students")
+{ ok: 1 }
+Atlas atlas-aw21i9-shard-0 [primary] college> db.students.insertOne({
+|     rollNo: 101,
+|     name: "Abhishek",
+|     dept: "CSE",
+|     marks: 78,
+|     city: "Chennai"
+| })
+{
+  acknowledged: true,
+  insertedId: ObjectId('6b03b542206a9f590ad9a5ad')
+}
+Atlas atlas-aw21i9-shard-0 [primary] college> db.students.insertMany([
+|     {
+|         rollNo: 102,
+|         name: "Priya",
+|         dept: "IT",
+|         marks: 85,
+|         city: "Jaipur"
+|     },
+|     {
+|         rollNo: 103,
+|         name: "Karthik",
+|         dept: "CSE",
+|         marks: 62,
+|         city: "Chennai"
+|     },
+|     {
+|         rollNo: 104,
+|         name: "Rahul",
+|         dept: "ECE",
+|         marks: 75,
+|         city: "Delhi"
+|     },
+|     {
+|         rollNo: 105,
+|         name: "Suresh",
+|         dept: "CSE",
+|         marks: 91,
+|         city: "Trichy"
+|     }
+| ])
+{
+  acknowledged: true,
+  insertedIds: {
+    '0': ObjectId('6b03b557206a9f590ad9a5ae'),
+    '1': ObjectId('6b03b557206a9f590ad9a5af'),
+    '2': ObjectId('6b03b557206a9f590ad9a5b0'),
+    '3': ObjectId('6b03b557206a9f590ad9a5b1')
+  }
+}
+Atlas atlas-aw21i9-shard-0 [primary] college> db.students.find()
+[
+  {
+    _id: ObjectId('6b03b542206a9f590ad9a5ad'),
+    rollNo: 101,
+    name: 'Abhishek',
+    dept: 'CSE',
+    marks: 78,
+    city: 'Chennai'
+  },
+  {
+    _id: ObjectId('6b03b557206a9f590ad9a5ae'),
+    rollNo: 102,
+    name: 'Priya',
+    dept: 'IT',
+    marks: 85,
+    city: 'Jaipur'
+  },
+  {
+    _id: ObjectId('6b03b557206a9f590ad9a5af'),
+    rollNo: 103,
+    name: 'Karthik',
+    dept: 'CSE',
+    marks: 62,
+    city: 'Chennai'
+  },
+  {
+    _id: ObjectId('6b03b557206a9f590ad9a5b0'),
+    rollNo: 104,
+    name: 'Rahul',
+    dept: 'ECE',
+    marks: 75,
+    city: 'Delhi'
+  },
+  {
+    _id: ObjectId('6b03b557206a9f590ad9a5b1'),
+    rollNo: 105,
+    name: 'Suresh',
+    dept: 'CSE',
+    marks: 91,
+    city: 'Trichy'
+  }
+]
+Atlas atlas-aw21i9-shard-0 [primary] college> db.students.find({ dept: "CSE" })
+[
+  {
+    _id: ObjectId('6b03b542206a9f590ad9a5ad'),
+    rollNo: 101,
+    name: 'Abhishek',
+    dept: 'CSE',
+    marks: 78,
+    city: 'Chennai'
+  },
+  {
+    _id: ObjectId('6b03b557206a9f590ad9a5af'),
+    rollNo: 103,
+    name: 'Karthik',
+    dept: 'CSE',
+    marks: 62,
+    city: 'Chennai'
+  },
+  {
+    _id: ObjectId('6b03b557206a9f590ad9a5b1'),
+    rollNo: 105,
+    name: 'Suresh',
+    dept: 'CSE',
+    marks: 91,
+    city: 'Trichy'
+  }
+]
+Atlas atlas-aw21i9-shard-0 [primary] college> db.students.updateOne(
+|     { rollNo: 103 },
+|     { $set: { marks: 68 } }
+| )
+{
+  acknowledged: true,
+  insertedId: null,
+  matchedCount: 1,
+  modifiedCount: 1,
+  upsertedCount: 0
+}
+Atlas atlas-aw21i9-shard-0 [primary] college> db.students.updateMany(
+|     { dept: "CSE" },
+|     { $set: { semester: 3 } }
+| )
+{
+  acknowledged: true,
+  insertedId: null,
+  matchedCount: 3,
+  modifiedCount: 3,
+  upsertedCount: 0
+}
+Atlas atlas-aw21i9-shard-0 [primary] college> db.students.deleteOne({ rollNo: 104 })
+{ acknowledged: true, deletedCount: 1 }
+Atlas atlas-aw21i9-shard-0 [primary] college> db.students.countDocuments({})
+4
